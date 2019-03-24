@@ -1,0 +1,31 @@
+spring:
+ datasource:
+   driver-class-name: com.mysql.jdbc.Driver
+   username: root
+   password: 123456
+   url: jdbc:mysql://192.168.153.132/sell?characterEncoding=utf8&useSSL=false
+ jpa:
+   show-sql: true
+   #当对象中有字段值为Null时 返回对象中不包含该字段
+ jackson:
+   default-property-inclusion: non_null
+logging:
+  pattern:
+    console: "%d - %msg%n"
+  path: /var/log/tomcat/
+server:
+  servlet:
+    context-path: /sell
+  port: 8080
+wechat:
+  #公众号，授权
+  mpAppId:   wxe3f64d69f3f9e020  # 支付用wxd898fcb01713c658
+  mpAppSecret: 60d074a5f4fc93b724cdb0e597c75497
+
+  #开放平台 卖家扫码登陆
+  #支付/商户号
+  mchId: 1483469312
+  mchKey: C5245D70627C1F8E9964D494B0735025
+  #发起支付不需要证书  退款需要
+  keyPath: /var/weixin_cert/h5.p12
+  notifyUrl: http://yjj.natappvip.cc/sell/pay/notify
